@@ -1,0 +1,23 @@
+C2H3O2,Acetate
+CO3,Carbonate
+HCO3,Hydrogen Carbonate,Bicarbonate
+OH,Hydroxide
+NO2,Nitrite
+NO3,Nitrate
+CrO4,Chromate
+Cr2O7,Dichromate
+PO4,Phosphate
+HPO4,Hydrogen Phosphate
+H2PO4,Dihydrogen Phosphate
+NH4,Ammonium
+ClO,Hypochlorite
+ClO2,Chlorite
+ClO3,Chlorate
+ClO4,Perchlorate
+MnO4,Permanganate
+SO3,Sulfite
+HSO3,Hydrogen Sulfite,Bisulfite
+SO4,Sulfate
+HSO4,Hydrogen Sulfate,Bisulfate
+CN,Cyanide
+O2,Peroxide

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="https://imgs.search.brave.com/p7aUPE6hYLzi8_j1b2pZUYMgHvz3Mbo3GuVbN17u8zA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9hdG9t/LXNtaWxpbmctMTE4/MzIzODIuanBn">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Learn the CHEM130 Polyatomic Ions</title>
+</head>
+<body>
+    <main id="main-window">
+        <div id="progress-bar-container">
+            <div id="progress-bar" style="width: 0%;"></div>
+        </div>
+        <div id="quiz-container">
+            <h1>Learn the CHEM130 Polyatomic Ions</h1>
+                <div id="quiz-menu">
+            <p>Choose what you want to learn</p>
+            <button id="formulas-button">
+                Learn Formulas
+            </button>
+            <button id="name-button">
+                Learn Names
+            </button>
+        </div>
+            <div id="question-container" class="hidden">
+                <p id="question" class="chem-formula"></p>
+                <div class="flex-row">
+                    <input type="text" id="user-input" placeholder="Your answer" autocomplete="off">
+                    <button onclick="checkAnswer()">Submit</button>
+                </div>
+                <p id="result"></p>
+            </div>
+            <div id="result-container" class="hidden">
+                <h2>Results</h2>
+                <p>Accuracy: <span id="accuracy-display"></span></p>
+                <div id="answers-container">
+                    <table id="answers-table">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Answer(s)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="answers-display">
+                            <template id="answers-template">
+                                <tr>
+                                    <td class="question"></td>
+                                    <td>
+                                        <span class="wrong-answers"></span><span class="correct-answer"></span>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+                <button onclick="location.reload()">Restart</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
