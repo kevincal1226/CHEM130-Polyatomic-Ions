@@ -1,0 +1,23 @@
+C2H3O2^-,Acetate
+CO3^2-,Carbonate
+HCO3^-,Hydrogen Carbonate,Bicarbonate
+OH^-,Hydroxide
+NO2^-,Nitrite
+NO3^-,Nitrate
+CrO4^2-,Chromate
+Cr2O7^2-,Dichromate
+PO4^3-,Phosphate
+HPO4^2-,Hydrogen Phosphate
+H2PO4^-,Dihydrogen Phosphate
+NH4^+,Ammonium
+ClO^-,Hypochlorite
+ClO2^-,Chlorite
+ClO3^-,Chlorate
+ClO4^-,Perchlorate
+MnO4^-,Permanganate
+SO3^2-,Sulfite
+HSO3^-,Hydrogen Sulfite,Bisulfite
+SO4^2-,Sulfate
+HSO4^-,Hydrogen Sulfate,Bisulfate
+CN^-,Cyanide
+O2^2-,Peroxide

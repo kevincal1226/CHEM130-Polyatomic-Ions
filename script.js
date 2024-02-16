@@ -18,7 +18,23 @@ function startQuiz(type) {
 }
 
 function fetchData() {
-    fetch("input.txt")
+    if (guessType === 'names') {
+        fetch("input-formatted-formulas.txt")
+        .then(response => response.text())
+        .then(csvData => {
+            data = csvData.trim().split('\n').map(line => {
+                const split = line.split(',');
+                return {
+                    formula: split[0],
+                    names: split.slice(1),
+                };
+            });
+            data = shuffleArray(data); // Shuffle the array
+            showQuestion();
+        });        
+    }
+    else {
+        fetch("input-no-formatting.txt")
         .then(response => response.text())
         .then(csvData => {
             data = csvData.trim().split('\n').map(line => {
@@ -31,6 +47,7 @@ function fetchData() {
             data = shuffleArray(data); // Shuffle the array
             showQuestion();
         });
+    }
 }
 
 function shuffleArray(array) {
@@ -46,7 +63,8 @@ function showQuestion() {
         const pair = data[currentIndex];
         const question = (guessType === 'formulas') ? pair.names.join('/') : pair.formula;
         if (guessType === 'names') {
-            document.querySelector('#question.chem-formula').innerHTML = question.replace(/(\d+)/g, '<sub>$1</sub>');
+            const formattedQuestion = question.replace(/\^(\S+)/g, (_, match) => `<sup>${match}</sup>`);
+            document.querySelector('#question.chem-formula').innerHTML = formattedQuestion.replace(/(\d+)/g, '<sub>$1</sub>');
         } 
         else {
              document.getElementById('question').innerText = question;
