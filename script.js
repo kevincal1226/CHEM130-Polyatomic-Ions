@@ -18,36 +18,19 @@ function startQuiz(type) {
 }
 
 function fetchData() {
-    if (guessType === 'names') {
-        fetch("input-formatted-formulas.txt")
-        .then(response => response.text())
-        .then(csvData => {
-            data = csvData.trim().split('\n').map(line => {
-                const split = line.split(',');
-                return {
-                    formula: split[0],
-                    names: split.slice(1),
-                };
-            });
-            data = shuffleArray(data); // Shuffle the array
-            showQuestion();
-        });        
-    }
-    else {
-        fetch("input-no-formatting.txt")
-        .then(response => response.text())
-        .then(csvData => {
-            data = csvData.trim().split('\n').map(line => {
-                const split = line.split(',');
-                return {
-                    formula: split[0],
-                    names: split.slice(1),
-                };
-            });
-            data = shuffleArray(data); // Shuffle the array
-            showQuestion();
+    fetch("input-formatted-formulas.txt")
+    .then(response => response.text())
+    .then(csvData => {
+        data = csvData.trim().split('\n').map(line => {
+            const split = line.split(',');
+            return {
+                formula: split[0],
+                names: split.slice(1),
+            };
         });
-    }
+        data = shuffleArray(data); // Shuffle the array
+        showQuestion();
+    });        
 }
 
 function shuffleArray(array) {
