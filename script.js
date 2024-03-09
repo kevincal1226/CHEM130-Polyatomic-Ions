@@ -6,8 +6,8 @@ const answers = new Map();
 
 function startQuiz(type) {
     if (type !== 'formulas' && type !== 'names')
-      return;
-  
+        return;
+
     document.getElementById('result-container').classList.add("hidden");
     document.getElementById('question-container').classList.remove("hidden");
     document.getElementById('quiz-menu').classList.add("hidden");
@@ -18,23 +18,7 @@ function startQuiz(type) {
 }
 
 function fetchData() {
-    if (guessType === 'names') {
-        fetch("input-formatted-formulas.txt")
-        .then(response => response.text())
-        .then(csvData => {
-            data = csvData.trim().split('\n').map(line => {
-                const split = line.split(',');
-                return {
-                    formula: split[0],
-                    names: split.slice(1),
-                };
-            });
-            data = shuffleArray(data); // Shuffle the array
-            showQuestion();
-        });        
-    }
-    else {
-        fetch("input-no-formatting.txt")
+    fetch("input-formatted-formulas.txt")
         .then(response => response.text())
         .then(csvData => {
             data = csvData.trim().split('\n').map(line => {
@@ -47,7 +31,6 @@ function fetchData() {
             data = shuffleArray(data); // Shuffle the array
             showQuestion();
         });
-    }
 }
 
 function shuffleArray(array) {
@@ -65,10 +48,10 @@ function showQuestion() {
         if (guessType === 'names') {
             const formattedQuestion = question.replace(/\^(\S+)/g, (_, match) => `<sup>${match}</sup>`);
             document.querySelector('#question.chem-formula').innerHTML = formattedQuestion.replace(/(\d+)/g, '<sub>$1</sub>');
-        } 
+        }
         else {
-             document.getElementById('question').innerText = question;
-        }        
+            document.getElementById('question').innerText = question;
+        }
         document.getElementById('user-input').value = ''; // Clear the user-input box
     } else {
         showResult();
@@ -89,7 +72,7 @@ function checkAnswer() {
     }
 
     if (correctAnswer.map(answer => answer.toUpperCase()).includes(userAnswer.toUpperCase())) {
-        if(document.getElementById('result').innerText.includes('Incorrect')) {
+        if (document.getElementById('result').innerText.includes('Incorrect')) {
             document.getElementById('result').innerText = '';
         }
         answers.get(question).incorrectAnswers.push('');
@@ -101,7 +84,7 @@ function checkAnswer() {
     } else {
         answers.get(question).incorrectAnswers.push(userAnswer);
 
-        numWrong++;          
+        numWrong++;
         document.getElementById('result').innerText = `Incorrect (${correctAnswer.join('/')})`;
         showQuestion();
     }

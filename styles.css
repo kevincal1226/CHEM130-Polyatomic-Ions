@@ -24,7 +24,7 @@
         --primary-container: var(--dark-grey);
         --on-primary-container: var(--off-white);
         --progress-bar-container-color: var(--mid-grey);
-        --input-background: #666666 ;
+        --input-background: #666666;
         --input-foreground: var(--off-white-lighter);
         color-scheme: dark;
     }
@@ -67,7 +67,8 @@ table {
     width: 100%;
 }
 
-th, td {
+th,
+td {
     padding: 5px;
     width: 50%;
 }
@@ -110,7 +111,8 @@ input {
     color: var(--input-foreground);
 }
 
-#result, .wrong-answers {
+#result,
+.wrong-answers {
     color: var(--red);
     font-weight: bold;
 }
